@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        document.write("<center> <b>Როგორ ხდება JSON ობიექტის დაკონვერტირება სტრინგიდან ობიექტში?</b></center>" + "<br>")
+        document.write("როდესაც სერვერიდან მონაცემებს ვიღებთ, ის ყოველთვის მოცემული გვაქვს სტრინგის სახით. ჯავასკრიპტში JSON.parse() მეთოდის გამოყენებით შეგვიძლია სტრინგები გადავაკეთოთ ობიექტად." + "<br>" + "ეს მეთოდი JSON სტრინგს იღებს პარამეტრად და აბრუნებს შესაბამის ჯავასკრიპტ ობიექტს." +"<br>" +"<br>");
+        document.write("<b>შევქმნათ JSON სტრინგი, რომელიც ობიექტს აღწერს სამი თვისებით:</b>" +"<br>")
+        document.write("const jsonString =" +"{name" + ":" + "John" + "<br>",   "age"+ ":" +30 + "<br>", "city"+ ":" +"New York}" + "<br>" + "<br>");
+        const jsonString = '{"name":"John", "age":30, "city":"New York"}';
+        document.write("<b>JSON.parse მეთოდი გააანალიზებს სტრიქონს და გარდაქმნის ჯავასკრიპტის ობიექტად</b>" +"<br>");
+        document.write("const jsonObject = JSON.parse(jsonString) " +"<br>"+"<br>")
+        const jsonObject = JSON.parse(jsonString);
+        // {
+        //     name: "John",
+        //     age: 30,
+        //     city: "New York"
+        // }
+
+        document.write("<b>შემდეგ უკვე გვექნება ობიექტის თვისებებზე წვდომა და გამოვიყენებთ ისე, როგორც ჯავასკრიპტის სხვა ობიექტებს </b>" +"<br>" +"<br>");
+        document.write("console.log(jsonObject.name);" +"<br>" +
+        "console.log(jsonObject.age);"  + "<br>" +
+        "console.log(jsonObject.city);" +"<br>" + "<br>")
+
+        console.log(jsonObject.name); 
+        console.log(jsonObject.age);  
+        console.log(jsonObject.city); 
+        
+        document.write("თუ JSON სტრინგი არ არის სათანადოდ ფორმატირებული, ამოგვიგდებს სინტაქსურ შეცდომას. ამის თავიდან ასაცილებლად შეგვიძლია ეს ბლოკი try-catch–ის საშუალებით გადავამოწმოთ და შეცდომა გავასწოროთ ისე, რომ მთლიანმა კოდმა არ შეწყვიტოს მუშაობა." +"<br>");
+        try {
+        const jsonObject = JSON.parse(jsonString);
+        console.log(jsonObject);
+        } catch (error) {
+        console.error("Invalid JSON string", error);
+        }
+
+
+    </script>
+</body>
+</html>
